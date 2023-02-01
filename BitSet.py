@@ -19,11 +19,9 @@ class BitVector:
         print()
         
     def __mask_maker(self, index):
-        if index < 32:
-            num = index
-        else:
-            num = index % 32
-        mask = 1 << num
+        block = self.__find_block(index)
+        offset = (self.len * 32) - index
+        mask = 1 << offset
         return mask
     def __find_block(self, index):
         block = index // 32
