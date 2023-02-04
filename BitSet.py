@@ -11,7 +11,7 @@ class BitVector:
     def reset(self, index):
         block = self.__find_block(index)
         mask = self.__mask_maker(index)
-        self.vector[block] &= mask
+        self.vector[block] ^= mask
 
     def view(self):
         for block in self.vector:
